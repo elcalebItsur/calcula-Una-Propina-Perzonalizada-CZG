@@ -1,4 +1,6 @@
-#Caleb Zacarias Garcia#
+Caleb Zacarias Garcia
+se hizo paso a paso siguiendo el laboratorio, se hicieron commits para en cada apartado
+
 Tip Time - Solution Code
 =================================
 
