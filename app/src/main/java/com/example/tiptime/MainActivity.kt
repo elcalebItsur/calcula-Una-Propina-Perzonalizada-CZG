@@ -70,38 +70,36 @@ class MainActivity : ComponentActivity() {
 fun TipTimeLayout() {
     var amountInput by remember { mutableStateOf("") }
     var tipInput by remember { mutableStateOf("") }
-
-    val tipPercent = tipInput.toDoubleOrNull() ?: 0.0
     val amount = amountInput.toDoubleOrNull() ?: 0.0
+    val tipPercent = tipInput.toDoubleOrNull() ?: 0.0
+
     val tip = calculateTip(amount, tipPercent)
-
-
     Column(
-        modifier = Modifier
-            .statusBarsPadding()
-            .padding(horizontal = 40.dp)
-            .verticalScroll(rememberScrollState())
-            .safeDrawingPadding(),
+        modifier = Modifier.padding(40.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(
             text = stringResource(R.string.calculate_tip),
             modifier = Modifier
-                .padding(bottom = 16.dp, top = 40.dp)
+                .padding(bottom = 16.dp)
                 .align(alignment = Alignment.Start)
         )
         EditNumberField(
             label = R.string.bill_amount,
             value = amountInput,
             onValueChanged = { amountInput = it },
-            modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth()
+            modifier = Modifier
+                .padding(bottom = 32.dp)
+                .fillMaxWidth()
         )
         EditNumberField(
             label = R.string.how_was_the_service,
             value = tipInput,
-            onValueChanged = {tipInput = it },
-            modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth()
+            onValueChanged = { tipInput = it },
+            modifier = Modifier
+                .padding(bottom = 32.dp)
+                .fillMaxWidth()
         )
         Text(
             text = stringResource(R.string.tip_amount, tip),
@@ -110,7 +108,6 @@ fun TipTimeLayout() {
         Spacer(modifier = Modifier.height(150.dp))
     }
 }
-
 @Composable
 fun EditNumberField(
     @StringRes label: Int,
