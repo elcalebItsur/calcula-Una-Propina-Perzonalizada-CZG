@@ -71,8 +71,10 @@ fun TipTimeLayout() {
     var amountInput by remember { mutableStateOf("") }
     var tipInput by remember { mutableStateOf("") }
 
+    val tipPercent = tipInput.toDoubleOrNull() ?: 0.0
     val amount = amountInput.toDoubleOrNull() ?: 0.0
-    val tip = calculateTip(amount)
+    val tip = calculateTip(amount, tipPercent)
+
 
     Column(
         modifier = Modifier
@@ -97,8 +99,8 @@ fun TipTimeLayout() {
         )
         EditNumberField(
             label = R.string.how_was_the_service,
-            value = "",
-            onValueChanged = { },
+            value = tipInput,
+            onValueChanged = {tipInput = it },
             modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth()
         )
         Text(
