@@ -1,3 +1,4 @@
+#Caleb Zacarias Garcia#
 Tip Time - Solution Code
 =================================
 
